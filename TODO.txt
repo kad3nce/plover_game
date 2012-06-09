@@ -1,0 +1,3 @@
+parse lyric file
+figure out MAX variable
+generate delays based on current time
