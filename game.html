@@ -4,25 +4,63 @@
     <script type="text/javascript" src="ui/jquery-ui-1.8.21.custom.js"></script>
     <script type="text/javascript">
       var MAX=55;
+      var current_block = -1;
       $(document).ready(function() {
-          //$(this).effect("shake", {times:3, direction:"up"}, 20).effect("shake", {times:3, direction:"left"}, 20);
-          for(i=0; i<=MAX;i++){
-              var rawTime = $("#block_"+(i+1)+" > .time").text();
-              mins = parseInt(rawTime.slice(0,2), 10);
-              //console.log(mins);
-              secs = parseInt(rawTime.slice(3,5), 10);
-              //console.log(secs);
-              millis = parseInt(rawTime.slice(6,25), 10);
-              //console.log(millis);
-
-              delta = (mins * 60 * 1000) + (secs * 1000) + millis;
-              console.log(delta);
-              $("#block_"+i).delay(delta).hide(200);
+          function doMatch(someText){
+              var currentText = $("#block_"+current_block+ " > .lyrics_block").text()
+              console.log(currentText);
+              if(someText == currentText){
+                $("#block_"+current_block).css("color", "green");
+              } else {
+                $("#block_"+current_block).css("color", "red");
+              }
+              console.log(someText);
           }
-          $("#audio").get(0).play();
+          function cycler(){
+              var rawTime = $("#block_"+(current_block)+" > .time").text();
+              mins = parseInt(rawTime.slice(0,2), 10);
+              secs = parseInt(rawTime.slice(3,5), 10);
+              millis = parseInt(rawTime.slice(6,25), 10);
 
+              timeOffset = (mins * 60 * 1000) + (secs * 1000) + millis;
+              console.log(timeOffset);
+
+              var nextRawTime = $("#block_"+(current_block+1)+" > .time").text();
+              nextMins = parseInt(nextRawTime.slice(0,2), 10);
+              nextSecs = parseInt(nextRawTime.slice(3,5), 10);
+              nextMillis = parseInt(nextRawTime.slice(6,25), 10);
+
+              nextTimeOffset = (nextMins * 60 * 1000) + (nextSecs * 1000) + nextMillis;
+              console.log(nextTimeOffset);
+
+              delta = nextTimeOffset - timeOffset;
+
+              console.log(delta);
+              $("#block_"+current_block).delay(delta).hide(200);
+
+              if(!isNaN(delta)){
+                setTimeout( function() {
+                  current_block +=1;
+                  cycler();
+                }, delta);
+              }
+          }
+          $("#start_button").click(function() {
+            cycler();
+            $("#audio").get(0).play();
+          });
+          $("#user_input").keypress(function(e) {
+            code= (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+              doMatch($("#user_input").val());
+              e.preventDefault();
+            }
+          });
       });
     </script>
+    <style type="text/css">
+      .time { display:none; }
+    </style>
   </head>
   <body>
     <audio id="audio" controls="controls">
@@ -32,6 +70,12 @@
     <div id="artist">Jonathan Coulton</div>
     <div id="song_title">Still Alive</div>
     <div id="block_song_source">lrc-files.com</div>
+    <button id="start_button" type="button">START</button>
+    <form action="">
+      <input id="user_input" type="text"></input>
+    </form>
+    <div id="block_-1"><span class="time">00:00.01</span><span class="lyrics_block"></span></div>
+    <div id="block_0"><span class="time">00:00.01</span><span class="lyrics_block">Get ready!!!</span></div>
     <div id="block_1"><span class="time">00:00.01</span><span class="lyrics_block">This was a triumph.</span></div>
     <div id="block_2"><span class="time">00:03.79</span><span class="lyrics_block">I'm making a note here:</span></div>
     <div id="block_3"><span class="time">00:06.57</span><span class="lyrics_block">HUGE SUCCESS.</span></div>
