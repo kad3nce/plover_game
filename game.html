@@ -5,16 +5,23 @@
     <script type="text/javascript">
       var MAX=55;
       var current_block = -1;
+      var wordCount=0;
       $(document).ready(function() {
           for(i=1;i<=MAX;i++){
             $("#block_"+i).hide()
+            $(".lyrics_block").each(function(){
+                block_text = $(this).text();
+                words = block_text.split(" ");
+                wordCount += words.length;
+              });
           }
+          console.log(wordCount);
           function getMatchResult(){
               users_text = $("#user_input").val();
               $("#user_input").val("");
               var currentText = $("#block_"+(current_block-1)+ " > .lyrics_block").text()
               //console.log(currentText);
-              if(users_text == currentText){
+              if($.trim(users_text).toLowerCase() == $.trim(currentText).toLowerCase()){
                 //Correct!
                 return "green";
               } else {
