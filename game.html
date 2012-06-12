@@ -1,9 +1,10 @@
 <html>
   <head>
-    <script type="text/javascript" src="jquery-1.7.2.js"></script>
-    <script type="text/javascript" src="ui/jquery-ui-1.8.21.custom.js"></script>
+    <title>{{ lrc_object.song_title }} - {{ lrc_object.artist }}</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/ui/jquery-ui-1.8.21.custom.js"></script>
     <script type="text/javascript">
-      var MAX=55;
+      var MAX={{ line_count }};
       var current_block = -1;
       var wordCount=0;
       $(document).ready(function() {
@@ -97,12 +98,12 @@
   <body>
     <div id="music">
       <audio id="audio" controls="controls">
-        <source src="stillalive.mp3" type="audio/mp3" />
+        <source src="media/{{ name }}.mp3" type="audio/mp3" />
         Your browser does not support the audio tag.
       </audio>
-      <div id="artist">Artist: Jonathan Coulton</div>
-      <div id="song_title">Song Title: Still Alive</div>
-      <div id="block_song_source">Song Source: lrc-files.com</div>
+      <div id="artist">Artist: {{ lrc_object.artist }}</div>
+      <div id="song_title">Song Title: {{ lrc_object.song_title }}</div>
+      <div id="block_song_source">Song Source: {{ lrc_object.lyrics_creator }}</div>
     </div>
     <form action="" autocomplete="off">
       <button id="start_button" type="button">START</button>
@@ -110,60 +111,8 @@
     </form>
     <div class="content_block" id="block_-1"><span class="time">00:00.01</span><span class="lyrics_block"></span></div>
     <div class="content_block" id="block_0"><span class="time">00:00.01</span><span class="lyrics_block">Get ready!!!</span></div>
-    <div class="content_block" id="block_1"><span class="time">00:00.01</span><span class="lyrics_block">This was a triumph.</span></div>
-    <div class="content_block" id="block_2"><span class="time">00:03.79</span><span class="lyrics_block">I'm making a note here:</span></div>
-    <div class="content_block" id="block_3"><span class="time">00:06.57</span><span class="lyrics_block">HUGE SUCCESS.</span></div>
-    <div class="content_block" id="block_4"><span class="time">00:08.103</span><span class="lyrics_block">It's hard to overstate</span></div>
-    <div class="content_block" id="block_5"><span class="time">00:11.67</span><span class="lyrics_block">my satisfaction.</span></div>
-    <div class="content_block" id="block_6"><span class="time">00:16.45</span><span class="lyrics_block">Aperture Science</span></div>
-    <div class="content_block" id="block_7"><span class="time">00:20.24</span><span class="lyrics_block">We do what we must</span></div>
-    <div class="content_block" id="block_8"><span class="time">00:21.87</span><span class="lyrics_block">because we can.</span></div>
-    <div class="content_block" id="block_9"><span class="time">00:25.20</span><span class="lyrics_block">For the good of all of us.</span></div>
-    <div class="content_block" id="block_10"><span class="time">00:28.65</span><span class="lyrics_block">Except the ones who are dead.</span></div>
-    <div class="content_block" id="block_11"><span class="time">00:31.16</span><span class="lyrics_block">But there's no sense crying</span></div>
-    <div class="content_block" id="block_12"><span class="time">00:32.73</span><span class="lyrics_block">over every mistake.</span></div>
-    <div class="content_block" id="block_13"><span class="time">00:35.02</span><span class="lyrics_block">You just keep on trying</span></div>
-    <div class="content_block" id="block_14"><span class="time">00:36.76</span><span class="lyrics_block">till you run out of cake.</span></div>
-    <div class="content_block" id="block_15"><span class="time">00:38.82</span><span class="lyrics_block">And the Science gets done.</span></div>
-    <div class="content_block" id="block_16"><span class="time">00:40.87</span><span class="lyrics_block">And you make a neat gun.</span></div>
-    <div class="content_block" id="block_17"><span class="time">00:42.84</span><span class="lyrics_block">For the people who are</span></div>
-    <div class="content_block" id="block_18"><span class="time">00:44.65</span><span class="lyrics_block">still alive.</span></div>
-    <div class="content_block" id="block_19"><span class="time">00:52.22</span><span class="lyrics_block">I'm not even angry.</span></div>
-    <div class="content_block" id="block_20"><span class="time">00:56.24</span><span class="lyrics_block">I'm being so sincere right now.</span></div>
-    <div class="content_block" id="block_21"><span class="time">01:01.21</span><span class="lyrics_block">Even though you broke my heart.</span></div>
-    <div class="content_block" id="block_22"><span class="time">01:04.82</span><span class="lyrics_block">And killed me.</span></div>
-    <div class="content_block" id="block_23"><span class="time">01:08.20</span><span class="lyrics_block">And tore me to pieces.</span></div>
-    <div class="content_block" id="block_24"><span class="time">01:12.20</span><span class="lyrics_block">And threw every piece into a fire.</span></div>
-    <div class="content_block" id="block_25"><span class="time">01:17.25</span><span class="lyrics_block">As they burned it hurt because</span></div>
-    <div class="content_block" id="block_26"><span class="time">01:20.53</span><span class="lyrics_block">I was so happy for you!</span></div>
-    <div class="content_block" id="block_27"><span class="time">01:22.76</span><span class="lyrics_block">Now these points of data</span></div>
-    <div class="content_block" id="block_28"><span class="time">01:24.80</span><span class="lyrics_block">make a beautiful line.</span></div>
-    <div class="content_block" id="block_29"><span class="time">01:26.88</span><span class="lyrics_block">And we're out of beta.</span></div>
-    <div class="content_block" id="block_30"><span class="time">01:28.89</span><span class="lyrics_block">We're releasing on time.</span></div>
-    <div class="content_block" id="block_31"><span class="time">01:30.87</span><span class="lyrics_block">So I'm GLaD. I got burned.</span></div>
-    <div class="content_block" id="block_32"><span class="time">01:32.86</span><span class="lyrics_block">Think of all the things we learned</span></div>
-    <div class="content_block" id="block_33"><span class="time">01:34.86</span><span class="lyrics_block">for the people who are</span></div>
-    <div class="content_block" id="block_34"><span class="time">01:36.53</span><span class="lyrics_block">still alive.</span></div>
-    <div class="content_block" id="block_35"><span class="time">01:44.47</span><span class="lyrics_block">Go ahead and leave me.</span></div>
-    <div class="content_block" id="block_36"><span class="time">01:48.29</span><span class="lyrics_block">I think i prefer to stay inside.</span></div>
-    <div class="content_block" id="block_37"><span class="time">01:53.33</span><span class="lyrics_block">maybe you'll find someone else</span></div>
-    <div class="content_block" id="block_38"><span class="time">01:56.68</span><span class="lyrics_block">to help you.</span></div>
-    <div class="content_block" id="block_39"><span class="time">02:00.45</span><span class="lyrics_block">maybe Black Mesa...</span></div>
-    <div class="content_block" id="block_40"><span class="time">02:04.32</span><span class="lyrics_block">THAT WAS A JOKE, HA HA, FAT CHANCE.</span></div>
-    <div class="content_block" id="block_41"><span class="time">02:09.31</span><span class="lyrics_block">Anyway this cake is great.</span></div>
-    <div class="content_block" id="block_42"><span class="time">02:12.73</span><span class="lyrics_block">It's so delicious and moist</span></div>
-    <div class="content_block" id="block_43"><span class="time">02:14.86</span><span class="lyrics_block">look at me still talking when theres science to do</span></div>
-    <div class="content_block" id="block_44"><span class="time">02:18.86</span><span class="lyrics_block">when i look out there</span></div>
-    <div class="content_block" id="block_45"><span class="time">02:20.95</span><span class="lyrics_block">it makes me glad I'm not you</span></div>
-    <div class="content_block" id="block_46"><span class="time">02:22.85</span><span class="lyrics_block">i've experiments to run</span></div>
-    <div class="content_block" id="block_47"><span class="time">02:24.87</span><span class="lyrics_block">there is research to be done</span></div>
-    <div class="content_block" id="block_48"><span class="time">02:26.82</span><span class="lyrics_block">on the people who are</span></div>
-    <div class="content_block" id="block_49"><span class="time">02:28.59</span><span class="lyrics_block">still alive.</span></div>
-    <div class="content_block" id="block_50"><span class="time">02:31.30</span><span class="lyrics_block">and believe me I am still alive</span></div>
-    <div class="content_block" id="block_51"><span class="time">02:34.75</span><span class="lyrics_block">I'm doing science and I'm still alive</span></div>
-    <div class="content_block" id="block_52"><span class="time">02:38.76</span><span class="lyrics_block">i feel fantastic and I'm still alive</span></div>
-    <div class="content_block" id="block_53"><span class="time">02:42.94</span><span class="lyrics_block">while your dying ill be still alive</span></div>
-    <div class="content_block" id="block_54"><span class="time">02:46.64</span><span class="lyrics_block">and when your dead i will be still alive</span></div>
-    <div class="content_block" id="block_55"><span class="time">02:50.55</span><span class="lyrics_block">still alive</span></div>
+    {% for i,line in line_enumeration %}
+    <div class="content_block" id="block_{{ i }}"><span class="time">{{ line.time }}</span><span class="lyrics_block">{{ line.lyrics }}</span></div>
+    {% endfor %}
   </body>
 </html>

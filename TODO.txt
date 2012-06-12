@@ -1,3 +1,9 @@
-parse lyric file
-figure out MAX variable
-generate delays based on current time
+*-parse lyric file
+*-figure out MAX variable
+*-generate delays based on current time
+-Make the UI look nicer
+-Clean up the code
+  -Move css into file
+  -Move js into file
+  -Remove unused js
+
