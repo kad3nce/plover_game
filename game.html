@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>{{ lrc_object.song_title }} - {{ lrc_object.artist }}</title>
-    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-    <script type="text/javascript" src="js/ui/jquery-ui-1.8.21.custom.js"></script>
+    <script type="text/javascript" src="{{ get_url('static', path='js/jquery-1.7.2.js') }}"></script>
+    <script type="text/javascript" src="{{ get_url('static', path='js/ui/jquery-ui-1.8.21.custom.js') }}"></script>
     <script type="text/javascript">
       var MAX={{ line_count }};
       var current_block = -1;
@@ -98,7 +98,7 @@
   <body>
     <div id="music">
       <audio id="audio" controls="controls">
-        <source src="media/{{ name }}.mp3" type="audio/mp3" />
+        <source src="{{ get_url('static', path='media/' + name + '.mp3') }}" type="audio/mp3" />
         Your browser does not support the audio tag.
       </audio>
       <div id="artist">Artist: {{ lrc_object.artist }}</div>
@@ -112,7 +112,7 @@
     <div class="content_block" id="block_-1"><span class="time">00:00.01</span><span class="lyrics_block"></span></div>
     <div class="content_block" id="block_0"><span class="time">00:00.01</span><span class="lyrics_block">Get ready!!!</span></div>
     {% for i,line in line_enumeration %}
-    <div class="content_block" id="block_{{ i }}"><span class="time">{{ line.time }}</span><span class="lyrics_block">{{ line.lyrics }}</span></div>
+    <div class="content_block" id="block_{{ i+1 }}"><span class="time">{{ line.time }}</span><span class="lyrics_block">{{ line.lyrics }}</span></div>
     {% endfor %}
   </body>
 </html>
