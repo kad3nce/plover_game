@@ -2,8 +2,18 @@
 *-figure out MAX variable
 *-generate delays based on current time
 -Make the UI look nicer
+  -Logo
+  -Name
+  -Page structure
+  -Colors
 -Clean up the code
   -Move css into file
   -Move js into file
   -Remove unused js
+-Form for uploading files
+  -Upload .lrc and .mp3 at the same time, pick a name for them
+-Screen that shows uploaded/valid songs to choose from
+  -Click a link and it will load game.html with that song loaded
 
+Someday/maybe:
+  -Tool/UI for manually constructing .lrc files from just an .mp3
