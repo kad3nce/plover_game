@@ -21,7 +21,11 @@ var MAX=$(".content_block").length;
                 return "green";
               } else {
                 //Not correct
-                return "red";
+		if(currentText == "Get ready!!!"){
+		    return "green"
+		} else {
+                    return "red";
+		}
               }
 
               //console.log(someText);
