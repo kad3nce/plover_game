@@ -10,7 +10,9 @@ def index():
     filenames = os.listdir("lrc/")
     available_songs = []
     if len(filenames) > 0:
-        available_songs = [name[:str.find(name, '.')] for name in filenames]
+        available_songs = [name[:str.find(name, '.')] for name in filenames if not name.startswith('.') and name.endswith(".lrc")]
+        lrc_parser = lrc.LRCParser()
+        available_songs = [lrc_parser.parse("lrc/" + song + ".lrc") for song in available_songs]
     return template("index.html", available_songs=available_songs)
 
 

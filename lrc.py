@@ -1,14 +1,15 @@
 import re
+import os.path
 
 
 class LRCObject:
     TAG_MAP = {'al': 'album', 'ar': 'artist', 'by': 'lyrics_creator', 'offset':
             'offset', 're': 'software_used', 'ti': 'song_title', 've':
-            'software_version'}
+            'software_version', 'file_name': 'file_name'}
 
     def __init__(self, album="", artist="", lyrics_creator="", lines=[],
             tags={}, offset=0, software_used="", song_title="",
-            software_version=""):
+            software_version="", file_name=""):
         self.album = album
         self.artist = artist
         self.lyrics_creator = lyrics_creator
@@ -18,6 +19,7 @@ class LRCObject:
         self.software_version = software_version
         self.tags = tags
         self.lines = lines
+        self.file_name = file_name
 
     def add_line(self, line, index=None):
         self.lines.append(line)
@@ -44,6 +46,7 @@ class LRCParser:
     def parse(self, filename):
         lines = []
         lrc_object = LRCObject()
+        lrc_object.add_tag("file_name", os.path.basename(filename.replace(".lrc","")))
         file = open(filename, "r")
         lines = file.readlines()
         file.close()

@@ -8,8 +8,8 @@
         {% if not available_songs %}
           <li>No songs available =[</li>
         {% else %}
-          {% for song_name in available_songs %}
-            <li><a href="{{ 'play/' + song_name }}">{{ song_name }}</a></li> 
+          {% for song in available_songs %}
+            <li><a href="{{ 'play/' + song.file_name }}">{{ song.song_title }}</a></li> 
           {% endfor %}
         {% endif %}
       </ul>

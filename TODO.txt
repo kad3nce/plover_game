@@ -7,8 +7,8 @@
   -Page structure
   -Colors
 -Clean up the code
-  -Move css into file
-  -Move js into file
+  *-Move css into file
+  *-Move js into file
   -Remove unused js
 -Form for uploading files
   -Upload .lrc and .mp3 at the same time, pick a name for them

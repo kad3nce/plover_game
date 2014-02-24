@@ -1,0 +1,14 @@
+.time { display:none; }
+
+#music { background: #BBBBBB; }
+
+.content_block {
+    width: 50%; 
+    margin: 0 auto;
+}
+
+form {
+    width: 50%; 
+    margin: 0 auto;
+}
+

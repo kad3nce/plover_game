@@ -1,1 +1,6 @@
+# Python stuff
 *.pyc
+virtualenv_plover_game
+
+# vim stuff
+*.swp
