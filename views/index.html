@@ -1,0 +1,18 @@
+<html>
+    <head>
+      <title>Steno Hero</title>
+    </head>
+    <body>
+      <h1>Choose a song</h1>
+      <ul>
+        {% if not available_songs %}
+          <li>No songs available =[</li>
+        {% else %}
+          {% for song in available_songs %}
+            <li><a href="{{ 'play/' + song.file_name }}">{{ song.song_title }}</a></li> 
+          {% endfor %}
+        {% endif %}
+      </ul>
+      <p>or, <a href="/upload">upload a new one.</a></p>
+    </body>
+</html>

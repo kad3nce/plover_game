@@ -1,4 +1,4 @@
-from bottle import route, run, jinja2_template as template, static_file, url, get, post, request
+from bottle import route, run, static_file, url, get, post, request, jinja2_template as template
 import lrc
 import os
 import unicodedata
