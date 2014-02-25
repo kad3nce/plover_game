@@ -61,4 +61,4 @@ def sanitize_filename(filename):
     cleaned_filename = unicodedata.normalize('NFKD', filename).encode('ASCII', 'ignore')
     return ''.join(c for c in cleaned_filename if c in valid_chars)
 
-run(host='0.0.0.0', port=80)
+run(host='0.0.0.0', port=8080)
