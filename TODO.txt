@@ -6,6 +6,7 @@
   -Name
   -Page structure
   -Colors
+-General UX improvements
 -Clean up the code
   *-Move css into file
   *-Move js into file
@@ -18,5 +19,8 @@
 -Score and missed/correct sections at end
   -Retry, new song
 
-Someday/maybe:
-  -Tool/UI for manually constructing .lrc files from just an .mp3
+-Song organization
+  -Tagging (genre, length, mood, popularity)
+  -Hierarchy (Artist -> Album -> Song)
+-Admin tool for adjusting LRC timings
+-Tool/UI for manually constructing .lrc files from just an .mp3
