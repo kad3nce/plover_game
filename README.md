@@ -21,11 +21,7 @@ How to play, using Docker:
 ==========================
 1. Install [Docker](https://docs.docker.com/)
 2. Launch a Docker container of Plover Game
-
-```sh
-$ docker run -i -t -p 8080:8080 kad3nce/plover_game
-```
-
+    - `$ docker run -i -t -p 8080:8080 kad3nce/plover_game`
 3. Connect to the running container. On a Linux OS, where you can host Docker containers directly, this will be http://localhost:8080/. On a Windows or Mac OS X system, you'll need to enter the IP address of your virtual Docker host machine. For Boot2Docker (OS X), this would be http://192.168.59.103:8080 by default.
 
 Note: The filesystem in Docker containers is ephemeral, so any tracks you upload will be lost after killing/removing the Docker container. Just consider the Docker option a quick way to fire up the game and poke around.
@@ -34,19 +30,8 @@ How to build a new Docker image from the current source:
 ========================================================
 1. Change dir to the root of this repo
 2. Build a new Docker image
-
-```sh
-$ docker build -t [YOUR hub.docker.com USERNAME]/plover_game .
-```
-
+    - `$ docker build -t [YOUR hub.docker.com USERNAME]/plover_game .`
 3. Run the new container locally
-
-```sh
-$ docker run -i -t -p 8080:8080 [YOUR hub.docker.com USERNAME]/plover_game
-```
-
+    - `$ docker run -i -t -p 8080:8080 [YOUR hub.docker.com USERNAME]/plover_game`
 4. Push the image to the Docker registry to share with others
-
-```sh
-$ docker push [YOUR hub.docker.com USERNAME]/plover_game
-```
+    - `$ docker push [YOUR hub.docker.com USERNAME]/plover_game`
